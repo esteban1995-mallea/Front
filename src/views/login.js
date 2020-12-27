@@ -65,9 +65,13 @@ export default function SignInSide() {
     setFormErrors(validate(user));
 
     let response = await Apis.login(user);
+    console.log("response:"+response)
 
-    ok = true;
-    
+    if (response === "ok") {
+          ok = true;
+    }
+
+
     if (Object.keys(formErrors).length === 0 && ok === true) {
     history.push("/home");
     }

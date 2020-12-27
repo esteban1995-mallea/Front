@@ -64,9 +64,9 @@ async function login(user) {
     );
     localStorage.setItem("token", response.data.data.token);
     localStorage.setItem("userinfo", response.data.data.user.admin);
+        return "ok"
   } catch (e) {
-    return
-    console.log(e);
+    return "NO"
   }
 }
 
