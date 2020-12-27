@@ -98,7 +98,7 @@ export default function Index() {
   }, 120000);
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} xs={12}>
       <Grid item xs={1}></Grid>
 
       <Grid item xs={2} justify="center">
