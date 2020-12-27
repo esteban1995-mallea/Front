@@ -119,7 +119,6 @@ export default function Album() {
 
     await Apis.update(usuario);
     user.id = usuario_edit.id;
-    console.log(user);
     history.push("/controluser");
   }
 

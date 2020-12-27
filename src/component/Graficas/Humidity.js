@@ -53,7 +53,6 @@ export default function Humidity() {
   }, [time]);
 
   setTimeout(function() {
-    console.log("actualizando");
     setTime(time + 1);
   }, 120000);
 

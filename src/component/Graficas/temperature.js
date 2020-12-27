@@ -51,7 +51,6 @@ export default function Temperature() {
   }, [time]);
 
   setTimeout(function() {
-    console.log("actualizando");
     setTime(time + 1);
   }, 120000);
 

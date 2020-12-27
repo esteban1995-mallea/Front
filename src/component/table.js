@@ -36,7 +36,6 @@ export default function Tabla() {
   }
 
   function edit(row) {
-    console.log(row);
     localStorage.setItem("userEdit", JSON.stringify(row));
     history.push("/controluser/edit");
   }

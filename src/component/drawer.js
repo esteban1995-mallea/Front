@@ -24,7 +24,6 @@ const useStyles = makeStyles({
 
 export default function TemporaryDrawer() {
   let is_admin = localStorage.getItem("userinfo");
-  console.log(is_admin)
 
   const classes = useStyles();
   const [state, setState] = React.useState({

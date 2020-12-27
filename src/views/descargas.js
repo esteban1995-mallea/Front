@@ -86,8 +86,6 @@ export default function Album() {
         })
         .then(function(response) {
           data = response.data.data.metereologias;
-
-          console.log(response.data.data.metereologias);
           changeMindate(response.data.data.metereologias[0]);
           changeMaxdate(response.data.data.metereologias[1]);
         })
@@ -107,7 +105,6 @@ export default function Album() {
     let token = localStorage.getItem("token");
     let data;
 
-    console.log(date2);
 
     data = axios
       .post(
@@ -120,7 +117,6 @@ export default function Album() {
       .then(function(response) {
         data = response.data.data.metereologias;
 
-        console.log(response.data.data.metereologias);
         let option = {};
         let dataTable = [];
 

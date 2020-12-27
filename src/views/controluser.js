@@ -58,8 +58,6 @@ const useStyles = makeStyles(theme => ({
 export default function Album() {
   let user = localStorage.getItem("userinfo");
 
-  console.log(user);
-
   const [redirect, setRedirect] = useState(false);
   const classes = useStyles();
   let token = localStorage.getItem("token");

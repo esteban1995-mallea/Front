@@ -25,10 +25,8 @@ function getallUltimodia() {
               var minutos = fechaISO.getMinutes();
               var fecha_formateada = hora + ":" + minutos;
 
-              console.log();
               fecha.push(String(fecha_formateada));
 
-              console.log(fecha);
               x = x + 1;
             }
           }

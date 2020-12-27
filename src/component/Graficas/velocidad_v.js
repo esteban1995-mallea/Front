@@ -54,7 +54,6 @@ export default function Velocidad_V() {
   }, [time]);
 
   setTimeout(function() {
-    console.log("actualizando");
     setTime(time + 1);
   }, 120000);
 
