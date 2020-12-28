@@ -16,7 +16,8 @@ import CreateIcon from "@material-ui/icons/Create";
 
 const useStyles = makeStyles(theme => ({
   table: {
-    minWidth: "90%"
+    minWidth: "90%",
+
   },
   button: {
     margin: theme.spacing(1)
