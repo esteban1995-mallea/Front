@@ -16,7 +16,7 @@ import CreateIcon from "@material-ui/icons/Create";
 
 const useStyles = makeStyles(theme => ({
   table: {
-    minWidth: 650
+    minWidth: "90%"
   },
   button: {
     margin: theme.spacing(1)
@@ -57,8 +57,7 @@ export default function Tabla() {
   return (
     <div>
       <Grid container spacing={3}>
-        <Grid item xs={1}></Grid>
-        <Grid item xs={10}>
+        <Grid item  md={12} xs={12} >
           <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="simple table">
               <TableHead>

@@ -200,11 +200,9 @@ export default function Album() {
           {/* Hero unit */}
           <div className={classes.heroContent}>
             <Grid container spacing={12}>
-              <Grid item xs={1}>
-                <Box p={5}></Box>
-              </Grid>
 
-              <Grid item xs={3}>
+
+              <Grid item  md={4} xs={12}>
                 <Box p={5}>
                   <Card className={classes.root}>
                     <CardContent>
@@ -232,15 +230,8 @@ export default function Album() {
                 </Box>
               </Grid>
 
-              <Grid item xs={1}>
-                <Box p={5}></Box>
-              </Grid>
 
-              <Grid item xs={2}>
-                <Box p={5}></Box>
-              </Grid>
-
-              <Grid item xs={3}>
+              <Grid item  md={4} xs={12}>
                 <Box p={5}>
                   <Card className={classes.root}>
                     <CardContent>

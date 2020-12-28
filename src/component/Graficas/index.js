@@ -60,6 +60,7 @@ const useStyles = makeStyles(theme => ({
 let angulo;
 
 export default function Index() {
+
   const classes = useStyles();
   const [humidity, setHumidity] = useState([]);
   const [irradianza, setIrradianza] = useState([]);
@@ -111,7 +112,7 @@ export default function Index() {
   return (
     <Grid container spacing={1} justify="center">
       <Grid item md={4} xs={12}>
-        <Box p={2}>
+        <Box a p={2}>
           <Card className={classes.root}>
             <CardContent>
               <br />
