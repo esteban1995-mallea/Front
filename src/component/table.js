@@ -16,8 +16,7 @@ import CreateIcon from "@material-ui/icons/Create";
 
 const useStyles = makeStyles(theme => ({
   table: {
-    minWidth: "90%",
-
+    minWidth: "90%"
   },
   button: {
     margin: theme.spacing(1)
@@ -25,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Tabla() {
-    let history = useHistory();
+  let history = useHistory();
 
   const [rows, setRows] = useState([]);
 
@@ -33,7 +32,7 @@ export default function Tabla() {
     let response = await Apis.deleteuser(id);
     history.push("/controluser");
 
-    return response
+    return response;
   }
 
   function edit(row) {
@@ -57,27 +56,33 @@ export default function Tabla() {
 
   return (
     <div>
-      <Grid container spacing={3}>
-        <Grid item  md={12} xs={12} >
+      <Grid container>
+        <Grid item md={2}></Grid>
+
+        <Grid item md={8} xs={12} justify="center">
           <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
+            <Table
+              className={classes.table}
+              size="small"
+              aria-label="simple table"
+            >
               <TableHead>
                 <TableRow>
-                  <TableCell align="right">Nombre</TableCell>
-                  <TableCell align="right">Apellido</TableCell>
-                  <TableCell align="right">Email</TableCell>
-                  <TableCell align="right">Admin</TableCell>
-                  <TableCell align="right">Accion</TableCell>
+                  <TableCell align="left">Nombre</TableCell>
+                  <TableCell align="left">Email</TableCell>
+                  <TableCell align="left">Admin</TableCell>
+                  <TableCell align="center">Accion</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {rows.map(row => (
                   <TableRow>
-                    <TableCell align="right">{row.nombre}</TableCell>
-                    <TableCell align="right">{row.apellido}</TableCell>
-                    <TableCell align="right">{row.email}</TableCell>
-                    <TableCell align="right">{row.admin}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="left">
+                      {row.nombre + " " + row.apellido}
+                    </TableCell>
+                    <TableCell align="left">{row.email}</TableCell>
+                    <TableCell align="left">{row.admin}</TableCell>
+                    <TableCell align="center">
                       <Button
                         variant="contained"
                         color="secondary"

@@ -77,7 +77,7 @@ export default function Album() {
   const classes = useStyles();
 
   useEffect(() => {
-    changeDate2();
+
     const rangoDatos = async () => {
       const token1 = localStorage.getItem("token");
 
@@ -89,8 +89,7 @@ export default function Album() {
           data = response.data.data.metereologias;
           changeMindate(response.data.data.metereologias[0]);
           changeMaxdate(response.data.data.metereologias[1]);
-          changeDate(mindate);
-          changeDate2(maxdate);
+
         })
         .catch(function(error) {
           console.log(error);
