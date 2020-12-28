@@ -28,8 +28,15 @@ const backend = "http://3.140.194.52:5050";
 
 const useStyles = makeStyles(theme => ({
   root: {
+    flexGrow: 1,
+    width: "50%",
+    height: "70%",
+    margin: "20%"
+  },
+  root123: {
     width: 200,
-    height: 280
+    height: 280,
+    margin: "20%"
   },
   root3: {
     width: 1410,
@@ -56,6 +63,8 @@ export default function Index() {
   const classes = useStyles();
   const [humidity, setHumidity] = useState([]);
   const [irradianza, setIrradianza] = useState([]);
+  const [temperature, setTemperature] = useState([]);
+  const [viento, setViento] = useState([]);
   const [direccion_viento, setDirection] = useState([]);
 
   const [time, setTime] = useState(0);
@@ -79,6 +88,8 @@ export default function Index() {
 
         let datos = response.data.data.metereologias || [];
         angulo = datos.direccion_viento;
+        setTemperature(datos.temperatura);
+        setViento(datos.velocidad_viento);
         // Return : 'W'
 
         setHumidity(datos.humedad);
@@ -98,16 +109,16 @@ export default function Index() {
   }, 120000);
 
   return (
-    <Grid container spacing={2} xs={12}>
-      <Grid item xs={1}></Grid>
-
-      <Grid item xs={2} justify="center">
-        <Box p={5}>
+    <Grid container spacing={1} justify="center">
+      <Grid item md={4} xs={12}>
+        <Box p={2}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <TemperatureIND />
-              <Typography variant="h6" component="h3"></Typography>
+              <Typography variant="h6" component="h3">
+                {temperature} %
+              </Typography>
               <br />
               <Divider />
               <br />
@@ -119,8 +130,8 @@ export default function Index() {
         </Box>
       </Grid>
 
-      <Grid item xs={2}>
-        <Box p={5}>
+      <Grid item md={4} xs={12}>
+        <Box p={2}>
           <Card className={classes.root}>
             <CardContent>
               <br />
@@ -139,8 +150,8 @@ export default function Index() {
         </Box>
       </Grid>
 
-      <Grid item xs={2}>
-        <Box p={5}>
+      <Grid item md={4} xs={12}>
+        <Box p={2}>
           <Card className={classes.root}>
             <CardContent>
               <br />
@@ -159,8 +170,8 @@ export default function Index() {
         </Box>
       </Grid>
 
-      <Grid item xs={2}>
-        <Box p={5}>
+      <Grid item md={4} xs={12}>
+        <Box p={2}>
           <Card className={classes.root}>
             <CardContent>
               <br />
@@ -180,19 +191,20 @@ export default function Index() {
         </Box>
       </Grid>
 
-      <Divider />
-
-      <Grid item xs={2}>
-        <Box p={5}>
+      <Grid item md={4} xs={12}>
+        <Box p={2}>
           <Card className={classes.root}>
             <CardContent>
               <br />
+              <VelocidadIND />
+              <Typography variant="h6" component="h3">
+                {viento} KMS
+              </Typography>
               <br />
 
-              <VelocidadIND />
               <Divider />
               <br />
-              <Typography variant="h5" component="h2">
+              <Typography variant="h5" component="h3">
                 Vel. Viento
               </Typography>
             </CardContent>
@@ -201,7 +213,7 @@ export default function Index() {
       </Grid>
 
       <Grid item xs={12}>
-        <Box p={5}>
+        <Box p={2}>
           <Accordion
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
@@ -213,23 +225,23 @@ export default function Index() {
             >
               <Typography>Graficas detalladas.</Typography>
             </AccordionSummary>
-            <Grid item xs={12}>
-              <Box p={5}>
+            <Grid item md={12} xs={12}>
+              <Box p={2}>
                 <Humidity />
               </Box>
             </Grid>{" "}
-            <Grid item xs={12}>
-              <Box p={5}>
+            <Grid item item md={12} xs={12}>
+              <Box p={2}>
                 <Temperature />
               </Box>
             </Grid>{" "}
-            <Grid item xs={12}>
-              <Box p={5}>
+            <Grid item item md={12} xs={12}>
+              <Box p={2}>
                 <Irradianza />
               </Box>
             </Grid>{" "}
-            <Grid item xs={12}>
-              <Box p={5}>
+            <Grid item item md={12} xs={12}>
+              <Box p={2}>
                 <VelocityWind />
               </Box>
             </Grid>{" "}
@@ -237,7 +249,6 @@ export default function Index() {
         </Box>
       </Grid>
 
-      <div className={classes.root2}></div>
     </Grid>
   );
 }
