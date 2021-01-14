@@ -108,40 +108,40 @@ export default function Index() {
   }, 120000);
 
   return (
-    <Grid container spacing={1} justify="center">
-      <Grid item md={4} xs={12}>
+    <Grid container spacing={1} justify="center"  style={{padding: 5}}>
+      <Grid item md={2} xs={12}>
         <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <TemperatureIND />
-              <Typography variant="h6" component="h3">
+              <Typography variant="h6" component="h6">
                 {temperature} °C
               </Typography>
               <br />
               <Divider />
               <br />
-              <Typography variant="h5" component="h3">
-                Temperatura
+              <Typography variant="h6" component="h6">
+                Temp.
               </Typography>
             </CardContent>
           </Card>
         </Box>
       </Grid>
 
-      <Grid item md={4} xs={12}>
+      <Grid item md={2} xs={12}>
         <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <HumedadIND />
-              <Typography variant="h6" component="h3">
+              <Typography variant="h6" component="h6">
                 {humidity} %
               </Typography>
               <br />
               <Divider />
               <br />
-              <Typography variant="h5" component="h3">
+              <Typography variant="h6" component="h6">
                 Humedad
               </Typography>
             </CardContent>
@@ -149,19 +149,19 @@ export default function Index() {
         </Box>
       </Grid>
 
-      <Grid item md={4} xs={12}>
+      <Grid item md={2} xs={12}>
         <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <IrradianzaIND />
-              <Typography variant="h6" component="h3">
+              <Typography variant="h6" component="h6">
                 {irradianza} W/m²
               </Typography>
               <br />
               <Divider />
               <br />
-              <Typography variant="h5" component="h3">
+              <Typography variant="h6" component="h6">
                 Irradianza
               </Typography>
             </CardContent>
@@ -169,42 +169,42 @@ export default function Index() {
         </Box>
       </Grid>
 
-      <Grid item md={4} xs={12}>
+      <Grid item md={2} xs={12}>
         <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <DireccionViento />
-              <Typography variant="h6" component="h3">
+              <Typography variant="h6" component="h6">
                 {direccion_viento} - °{angulo}
               </Typography>
               <br />
 
               <Divider />
               <br />
-              <Typography variant="h5" component="h3">
-                Dirrec. Viento
+              <Typography variant="h6" component="h6">
+                D.Viento
               </Typography>
             </CardContent>
           </Card>
         </Box>
       </Grid>
 
-      <Grid item md={4} xs={12}>
+      <Grid item md={2} xs={12}>
         <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <VelocidadIND />
               <Typography variant="h6" component="h3">
-                {viento} KM/S
+                {viento} km/s
               </Typography>
               <br />
 
               <Divider />
               <br />
-              <Typography variant="h5" component="h3">
-                Vel. Viento
+              <Typography variant="h6" component="h3">
+                V.Viento
               </Typography>
             </CardContent>
           </Card>
