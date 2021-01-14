@@ -13,9 +13,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns"; // choose your lib
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Divider from "@material-ui/core/Divider";
+
 
 const useStyles = makeStyles(theme => ({
   root: {

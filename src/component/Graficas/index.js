@@ -91,13 +91,11 @@ export default function Index() {
         angulo = datos.direccion_viento;
         setTemperature(datos.temperatura);
         setViento(datos.velocidad_viento);
-        // Return : 'W'
-
         setHumidity(datos.humedad);
 
         const directionCharacter = classifyDir(angulo);
         setDirection(directionCharacter);
-        setIrradianza(0);
+        setIrradianza(datos.irradianza_solar);
       } catch (e) {
         console.log(e);
       }
@@ -112,13 +110,13 @@ export default function Index() {
   return (
     <Grid container spacing={1} justify="center">
       <Grid item md={4} xs={12}>
-        <Box p={2}>
+        <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <TemperatureIND />
               <Typography variant="h6" component="h3">
-                {temperature} %
+                {temperature} °C
               </Typography>
               <br />
               <Divider />
@@ -132,7 +130,7 @@ export default function Index() {
       </Grid>
 
       <Grid item md={4} xs={12}>
-        <Box p={2}>
+        <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
@@ -152,7 +150,7 @@ export default function Index() {
       </Grid>
 
       <Grid item md={4} xs={12}>
-        <Box p={2}>
+        <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
@@ -172,7 +170,7 @@ export default function Index() {
       </Grid>
 
       <Grid item md={4} xs={12}>
-        <Box p={2}>
+        <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
@@ -193,13 +191,13 @@ export default function Index() {
       </Grid>
 
       <Grid item md={4} xs={12}>
-        <Box p={2}>
+        <Box p={1}>
           <Card className={classes.root}>
             <CardContent>
               <br />
               <VelocidadIND />
               <Typography variant="h6" component="h3">
-                {viento} KMS
+                {viento} KM/S
               </Typography>
               <br />
 
@@ -214,7 +212,7 @@ export default function Index() {
       </Grid>
 
       <Grid item xs={12}>
-        <Box p={2}>
+        <Box p={1}>
           <Accordion
             expanded={expanded === "panel1"}
             onChange={handleChange("panel1")}
@@ -227,25 +225,25 @@ export default function Index() {
               <Typography>Graficas detalladas.</Typography>
             </AccordionSummary>
             <Grid item md={12} xs={12}>
-              <Box p={2}>
+              <Box p={1}>
                 <Humidity />
               </Box>
-            </Grid>{" "}
-            <Grid item item md={12} xs={12}>
-              <Box p={2}>
+            </Grid>
+            <Grid item  md={12} xs={12}>
+              <Box p={1}>
                 <Temperature />
               </Box>
-            </Grid>{" "}
-            <Grid item item md={12} xs={12}>
-              <Box p={2}>
+            </Grid>
+            <Grid item  md={12} xs={12}>
+              <Box p={1}>
                 <Irradianza />
               </Box>
-            </Grid>{" "}
-            <Grid item item md={12} xs={12}>
-              <Box p={2}>
+            </Grid>
+            <Grid item  md={12} xs={12}>
+              <Box p={1}>
                 <VelocityWind />
               </Box>
-            </Grid>{" "}
+            </Grid>
           </Accordion>
         </Box>
       </Grid>
