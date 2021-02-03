@@ -29,7 +29,7 @@ const backend = "http://3.140.194.52:5050";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    width: "50%",
+    width: "60%",
     height: "70%",
     margin: "20%"
   },
@@ -60,7 +60,6 @@ const useStyles = makeStyles(theme => ({
 let angulo;
 
 export default function Index() {
-
   const classes = useStyles();
   const [humidity, setHumidity] = useState([]);
   const [irradianza, setIrradianza] = useState([]);
@@ -108,7 +107,7 @@ export default function Index() {
   }, 120000);
 
   return (
-    <Grid container spacing={1} justify="center"  style={{padding: 5}}>
+    <Grid container spacing={1} justify="center" style={{padding: 5}}>
       <Grid item md={2} xs={12}>
         <Box p={1}>
           <Card className={classes.root}>
@@ -116,7 +115,8 @@ export default function Index() {
               <br />
               <TemperatureIND />
               <Typography variant="h6" component="h6">
-                {temperature} °C
+                {temperature} <br />
+                °C
               </Typography>
               <br />
               <Divider />
@@ -136,7 +136,7 @@ export default function Index() {
               <br />
               <HumedadIND />
               <Typography variant="h6" component="h6">
-                {humidity} %
+                {humidity} <br />%
               </Typography>
               <br />
               <Divider />
@@ -156,7 +156,7 @@ export default function Index() {
               <br />
               <IrradianzaIND />
               <Typography variant="h6" component="h6">
-                {irradianza} W/m²
+                {irradianza}<br /> w/m²
               </Typography>
               <br />
               <Divider />
@@ -176,7 +176,7 @@ export default function Index() {
               <br />
               <DireccionViento />
               <Typography variant="h6" component="h6">
-                {direccion_viento} - °{angulo}
+                {direccion_viento} <br />°{angulo}
               </Typography>
               <br />
 
@@ -197,7 +197,7 @@ export default function Index() {
               <br />
               <VelocidadIND />
               <Typography variant="h6" component="h3">
-                {viento} km/s
+                {viento} <br /> km/h
               </Typography>
               <br />
 
@@ -229,17 +229,17 @@ export default function Index() {
                 <Humidity />
               </Box>
             </Grid>
-            <Grid item  md={12} xs={12}>
+            <Grid item md={12} xs={12}>
               <Box p={1}>
                 <Temperature />
               </Box>
             </Grid>
-            <Grid item  md={12} xs={12}>
+            <Grid item md={12} xs={12}>
               <Box p={1}>
                 <Irradianza />
               </Box>
             </Grid>
-            <Grid item  md={12} xs={12}>
+            <Grid item md={12} xs={12}>
               <Box p={1}>
                 <VelocityWind />
               </Box>
@@ -247,7 +247,6 @@ export default function Index() {
           </Accordion>
         </Box>
       </Grid>
-
     </Grid>
   );
 }

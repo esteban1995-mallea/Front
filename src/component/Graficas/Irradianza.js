@@ -25,11 +25,11 @@ export default function Irradianza() {
 
         let datos = response.data.data.metereologias || [];
 
-        let irradianza = [];
+        let irradianza1 = [];
         let fecha = [];
         datos.forEach(dato => {
           if (x <= 20) {
-            irradianza.push(Number(dato.irradianza));
+            irradianza1.push(Number(dato.irradianza_solar));
 
             let fechaISO = new Date(dato.fecha);
             let hora = fechaISO.getHours();
@@ -37,13 +37,16 @@ export default function Irradianza() {
             if (Number(minutos) < 10) {
               minutos = "0" + minutos;
             }
+            if (Number(hora) < 10) {
+              hora = "0" + hora;
+            }
 
             let fecha_formateada = hora + ":" + minutos;
             fecha.push(String(fecha_formateada));
             x = x + 1;
           }
         });
-        setIrradianza(irradianza);
+        setIrradianza(irradianza1);
         setHours(fecha);
       } catch (e) {
         console.log(e);
@@ -54,7 +57,6 @@ export default function Irradianza() {
   }, [time]);
 
   setTimeout(function() {
-    console.log("actualizando");
     setTime(time + 1);
   }, 120000);
 

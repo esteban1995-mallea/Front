@@ -30,7 +30,7 @@ export default function Tabla() {
 
   async function Delete(id) {
     let response = await Apis.deleteuser(id);
-    history.push("/controluser");
+    window.location.reload(true);
 
     return response;
   }

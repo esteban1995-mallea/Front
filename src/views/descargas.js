@@ -13,7 +13,9 @@ import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import {DatePicker, MuiPickersUtilsProvider} from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns"; // choose your lib
-
+import Paper from "@material-ui/core/Paper";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,6 +23,11 @@ const useStyles = makeStyles(theme => ({
     width: "50%",
     height: "70%",
     margin: "20%"
+  },
+  root2: {
+    marginRight: theme.spacing(10),
+    width: "80%",
+    height: "80%"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -37,7 +44,8 @@ const useStyles = makeStyles(theme => ({
 
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6)
+    padding: theme.spacing(8, 0, 6),
+    alignContent: "center"
   },
   heroButtons: {
     marginTop: theme.spacing(4)
@@ -75,7 +83,6 @@ export default function Album() {
   const classes = useStyles();
 
   useEffect(() => {
-
     const rangoDatos = async () => {
       const token1 = localStorage.getItem("token");
 
@@ -87,7 +94,6 @@ export default function Album() {
           data = response.data.data.metereologias;
           changeMindate(response.data.data.metereologias[0]);
           changeMaxdate(response.data.data.metereologias[1]);
-
         })
         .catch(function(error) {
           console.log(error);
@@ -198,41 +204,62 @@ export default function Album() {
         <main>
           {/* Hero unit */}
           <div className={classes.heroContent}>
-            <Grid container spacing={12}>
-              <Grid item md={6} xs={12}>
-                <Box p={5}>
-                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <DatePicker
-                      autoOk
-                      variant="inline"
-                      label="Fecha inicio"
-                      format="dd/MM/yyyy"
-                      minDate={mindate}
-                      maxDate={maxdate}
-                      animateYearScrolling
-                      value={date}
-                      onChange={changeDate}
-                    />
-                  </MuiPickersUtilsProvider>
+            <Grid container>
+              <Grid item md={1} xs={12}></Grid>
+
+              <Grid item md={5} xs={12}>
+                <Box p={1}>
+                  <Card className={classes.root2}>
+                    <CardContent>
+                      <Typography variant="h6" component="h6">
+                        Fecha inicial
+                      </Typography>
+                      <br />
+                      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <DatePicker
+                          autoOk
+                          variant="static"
+                          label="Fecha inicio"
+                          format="dd/MM/yyyy"
+                          minDate={mindate}
+                          maxDate={maxdate}
+                          animateYearScrolling
+                          orientation="landscape"
+                          value={date}
+                          onChange={changeDate}
+                        />
+                      </MuiPickersUtilsProvider>
+                    </CardContent>
+                  </Card>
                 </Box>
               </Grid>
+              <Grid item md={1} xs={12}></Grid>
 
-              <Grid item md={6} xs={12}>
-                <Box p={5}>
-                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <DatePicker
-                      format="dd/MM/yyyy"
-                      minDate={mindate}
-                      maxDate={maxdate}
-                      variant="inline"
-                      autoOk
-                      disableFuture
-                      initialFocusedDate={mindate}
-                      label="Fecha final"
-                      value={date2}
-                      onChange={changeDate2}
-                    />
-                  </MuiPickersUtilsProvider>
+              <Grid item md={5} xs={12}>
+                <Box p={1} spacing={16}>
+                  <Card className={classes.root2}>
+                    <CardContent>
+                    <Typography variant="h6" component="h6">
+                      Fecha final
+                    </Typography>
+                    <br />
+                      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <DatePicker
+                          format="dd/MM/yyyy"
+                          orientation="landscape"
+                          minDate={mindate}
+                          maxDate={maxdate}
+                          variant="static"
+                          autoOk
+                          disableFuture
+                          initialFocusedDate={mindate}
+                          label="Fecha final"
+                          value={date2}
+                          onChange={changeDate2}
+                        />
+                      </MuiPickersUtilsProvider>
+                    </CardContent>
+                  </Card>
                 </Box>
               </Grid>
             </Grid>
