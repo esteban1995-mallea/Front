@@ -92,6 +92,7 @@ export default function Album() {
         })
         .then(function(response) {
           data = response.data.data.metereologias;
+          console.log(data)
           changeMindate(response.data.data.metereologias[0]);
           changeMaxdate(response.data.data.metereologias[1]);
         })
@@ -111,6 +112,8 @@ export default function Album() {
     let token = localStorage.getItem("token");
     let data;
 
+    console.log("max"+date);
+    console.log("min"+date2);
     data = axios
       .post(
         `${backend}/metereologias/data/fechasfiltradas`,
@@ -217,13 +220,11 @@ export default function Album() {
                       <br />
                       <MuiPickersUtilsProvider utils={DateFnsUtils}>
                         <DatePicker
-                          autoOk
                           variant="static"
-                          label="Fecha inicio"
                           format="dd/MM/yyyy"
                           minDate={mindate}
                           maxDate={maxdate}
-                          animateYearScrolling
+                          initialFocusedDate ={mindate}
                           orientation="landscape"
                           value={date}
                           onChange={changeDate}
@@ -251,9 +252,6 @@ export default function Album() {
                           maxDate={maxdate}
                           variant="static"
                           autoOk
-                          disableFuture
-                          initialFocusedDate={mindate}
-                          label="Fecha final"
                           value={date2}
                           onChange={changeDate2}
                         />

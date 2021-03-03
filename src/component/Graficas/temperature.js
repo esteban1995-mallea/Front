@@ -13,6 +13,7 @@ export default function Temperature() {
     const obtenerdatos = async () => {
       try {
         let x = 0;
+        let cont = 0;
 
         let token = localStorage.getItem("token");
 
@@ -26,8 +27,14 @@ export default function Temperature() {
 
         let temperatura = [];
         let fecha = [];
+
         datos.forEach(dato => {
-          if (x <= 20) {
+          cont = cont + 1;
+        });
+
+
+        datos.forEach(dato => {
+          if (x > cont-21) {
             temperatura.push(Number(dato.temperatura));
 
             let fechaISO = new Date(dato.fecha);
@@ -38,8 +45,8 @@ export default function Temperature() {
             }
             let fecha_formateada = hora + ":" + minutos;
             fecha.push(String(fecha_formateada));
-            x = x + 1;
           }
+                      x = x + 1;
         });
         setTemperature(temperatura);
         setHours(fecha);
@@ -60,7 +67,7 @@ export default function Temperature() {
       chart: {
         type: "area",
         height: 350,
-        zoom: {enabled: true}
+        zoom: {enabled: false}
       },
       dataLabels: {
         enabled: false

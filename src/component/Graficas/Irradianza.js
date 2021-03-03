@@ -14,6 +14,7 @@ export default function Irradianza() {
     const obtenerdatos = async () => {
       try {
           let x = 0;
+          let cont = 0;
           let token1 = localStorage.getItem("token");
 
         let response = await axios.get(
@@ -27,8 +28,14 @@ export default function Irradianza() {
 
         let irradianza1 = [];
         let fecha = [];
+
         datos.forEach(dato => {
-          if (x <= 20) {
+          cont = cont + 1;
+        });
+
+
+        datos.forEach(dato => {
+          if (x > cont-21) {
             irradianza1.push(Number(dato.irradianza_solar));
 
             let fechaISO = new Date(dato.fecha);
@@ -43,8 +50,9 @@ export default function Irradianza() {
 
             let fecha_formateada = hora + ":" + minutos;
             fecha.push(String(fecha_formateada));
-            x = x + 1;
+
           }
+                    x = x + 1;
         });
         setIrradianza(irradianza1);
         setHours(fecha);
@@ -71,6 +79,7 @@ export default function Irradianza() {
       dataLabels: {
         enabled: false
       },
+      colors: ["#F0F912"],
       stroke: {
         curve: "straight"
       },

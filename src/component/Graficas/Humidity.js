@@ -14,6 +14,7 @@ export default function Humidity() {
     const obtenerdatos = async () => {
       try {
         let x = 0;
+        let cont = 0;
         let token = localStorage.getItem("token");
         let response = await axios.get(
           `${backend}/metereologias/data/obtenerfechas`,
@@ -26,8 +27,16 @@ export default function Humidity() {
 
         let humedad = [];
         let fecha = [];
+
         datos.forEach(dato => {
-          if (x <= 20) {
+          cont = cont + 1;
+        });
+
+        datos.forEach(dato => {
+
+          if (x > cont-21) {
+
+
             humedad.push(Number(dato.humedad));
 
             let fechaISO = new Date(dato.fecha);
@@ -39,8 +48,12 @@ export default function Humidity() {
 
             let fecha_formateada = hora + ":" + minutos;
             fecha.push(String(fecha_formateada));
-            x = x + 1;
+
+
           }
+
+          x = x + 1;
+
         });
         setHumidity(humedad);
         setHours(fecha);
@@ -62,7 +75,7 @@ export default function Humidity() {
       chart: {
         type: "area",
         height: 350,
-        zoom: {enabled: true}
+        zoom: {enabled: false}
       },
       dataLabels: {
         enabled: false
