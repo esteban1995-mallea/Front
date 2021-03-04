@@ -34,7 +34,7 @@ export default function Temperature() {
 
 
         datos.forEach(dato => {
-          if (x > cont-21) {
+          if (x < 20) {
             temperatura.push(Number(dato.temperatura));
 
             let fechaISO = new Date(dato.fecha);
@@ -48,8 +48,8 @@ export default function Temperature() {
           }
                       x = x + 1;
         });
-        setTemperature(temperatura);
-        setHours(fecha);
+        setTemperature(temperatura.reverse());
+        setHours(fecha.reverse());
       } catch (e) {
         console.log(e);
       }

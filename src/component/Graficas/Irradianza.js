@@ -29,13 +29,15 @@ export default function Irradianza() {
         let irradianza1 = [];
         let fecha = [];
 
+
         datos.forEach(dato => {
           cont = cont + 1;
         });
 
-
         datos.forEach(dato => {
-          if (x > cont-21) {
+          if (x < 20) {
+
+
             irradianza1.push(Number(dato.irradianza_solar));
 
             let fechaISO = new Date(dato.fecha);
@@ -54,8 +56,10 @@ export default function Irradianza() {
           }
                     x = x + 1;
         });
-        setIrradianza(irradianza1);
-        setHours(fecha);
+        setIrradianza(irradianza1.reverse());
+
+        setHours(fecha.reverse());
+        x=0;
       } catch (e) {
         console.log(e);
       }

@@ -34,7 +34,7 @@ export default function Humidity() {
 
         datos.forEach(dato => {
 
-          if (x > cont-21) {
+          if (x < 20) {
 
 
             humedad.push(Number(dato.humedad));
@@ -55,8 +55,8 @@ export default function Humidity() {
           x = x + 1;
 
         });
-        setHumidity(humedad);
-        setHours(fecha);
+        setHumidity(humedad.reverse());
+        setHours(fecha.reverse());
       } catch (e) {
         console.log(e);
       }
