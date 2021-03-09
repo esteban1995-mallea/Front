@@ -88,8 +88,14 @@ export default function Index() {
 
         let datos = response.data.data.metereologias || [];
         angulo = datos.direccion_viento;
-        setTemperature(datos.temperatura);
-        setViento(datos.velocidad_viento);
+
+        let viento=datos.velocidad_viento/2.237
+
+        var con3decimales = viento.toFixed(3);
+
+
+        setTemperature(datos.temperatura+273.15);
+        setViento(con3decimales);
         setHumidity(datos.humedad);
 
         const directionCharacter = classifyDir(angulo);
@@ -116,7 +122,7 @@ export default function Index() {
               <TemperatureIND />
               <Typography variant="h6" component="h6">
                 {temperature} <br />
-                °C
+                °K
               </Typography>
               <br />
               <Divider />
@@ -197,7 +203,7 @@ export default function Index() {
               <br />
               <VelocidadIND />
               <Typography variant="h6" component="h3">
-                {viento} <br /> km/h
+                {viento} <br /> m/s
               </Typography>
               <br />
 

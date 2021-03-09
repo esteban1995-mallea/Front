@@ -31,7 +31,13 @@ export default function Velocidad_V() {
         });
         datos.forEach(dato => {
           if (x < 20) {
-            vel.push(Number(dato.velocidad_viento));
+
+            let viento=dato.velocidad_viento/2.237
+
+            var con3decimales = viento.toFixed(1);
+
+
+            vel.push(Number(con3decimales));
 
             let fechaISO = new Date(dato.fecha);
             let hora = fechaISO.getHours();

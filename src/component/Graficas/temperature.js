@@ -35,7 +35,14 @@ export default function Temperature() {
 
         datos.forEach(dato => {
           if (x < 20) {
-            temperatura.push(Number(dato.temperatura));
+
+            let tmp=dato.temperatura+273.15
+
+            var con3decimales = tmp.toFixed(1);
+
+
+
+            temperatura.push(Number(con3decimales));
 
             let fechaISO = new Date(dato.fecha);
             let hora = fechaISO.getHours();

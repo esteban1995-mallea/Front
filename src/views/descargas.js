@@ -132,14 +132,14 @@ export default function Album() {
           if (data) {
             for (let i in data) {
               let obj = {
-                id: data[i].id,
+                numero_estacion: data[i].numero_estacion,
                 humedad: data[i].humedad,
-                temperatura: data[i].temperatura,
-                velocidad_viento: data[i].velocidad_viento,
+                temperatura: data[i].temperatura+273.15,
+                velocidad_viento: data[i].velocidad_viento/2.237,
                 direccion_viento: data[i].direccion_viento,
                 irradianza_solar: data[i].irradianza_solar,
                 fecha: data[i].fecha,
-                numero_estacion: data[i].numero_estacion
+
               };
 
               dataTable.push(obj);
@@ -152,7 +152,6 @@ export default function Album() {
             sheetData: dataTable,
             sheetName: "sheet",
             sheetFilter: [
-              "id",
               "humedad",
               "temperatura",
               "velocidad_viento",
@@ -162,7 +161,6 @@ export default function Album() {
               "numero_estacion"
             ],
             sheetHeader: [
-              "id",
               "humedad",
               "temperatura",
               "velocidad_viento",
@@ -224,7 +222,7 @@ export default function Album() {
                           format="dd/MM/yyyy"
                           minDate={mindate}
                           maxDate={maxdate}
-                          initialFocusedDate ={mindate}
+
                           orientation="landscape"
                           value={date}
                           onChange={changeDate}
@@ -251,7 +249,7 @@ export default function Album() {
                           minDate={mindate}
                           maxDate={maxdate}
                           variant="static"
-                          autoOk
+                          initialFocusedDate ={maxdate}
                           value={date2}
                           onChange={changeDate2}
                         />

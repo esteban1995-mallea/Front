@@ -37,8 +37,12 @@ export default function Irradianza() {
         datos.forEach(dato => {
           if (x < 20) {
 
+            let tmp=dato.irradianza_solar
 
-            irradianza1.push(Number(dato.irradianza_solar));
+            var con3decimales = tmp.toFixed(1);
+
+
+            irradianza1.push(Number(con3decimales));
 
             let fechaISO = new Date(dato.fecha);
             let hora = fechaISO.getHours();
