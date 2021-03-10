@@ -94,7 +94,15 @@ export default function Index() {
         var con3decimales = viento.toFixed(3);
 
 
-        setTemperature(datos.temperatura+273.15);
+
+
+        let tmep=datos.temperatura+273.15
+
+        var temperature_ = tmep.toFixed(2);
+
+
+        setTemperature(temperature_);
+
         setViento(con3decimales);
         setHumidity(datos.humedad);
 
