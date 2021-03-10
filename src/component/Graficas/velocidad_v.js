@@ -86,7 +86,7 @@ export default function Velocidad_V() {
         align: "left"
       },
       subtitle: {
-        text: "Movimientos recientes de velocidad del viento (40 min aprox)",
+        text: "Movimientos recientes de velocidad del viento (60 min aprox)",
         align: "left"
       },
       xaxis: {

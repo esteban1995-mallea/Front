@@ -88,7 +88,7 @@ export default function Temperature() {
         align: "left"
       },
       subtitle: {
-        text: "Movimientos recientes de temperatura (40 min aprox)",
+        text: "Movimientos recientes de temperatura (60 min aprox)",
         align: "left"
       },
       xaxis: {

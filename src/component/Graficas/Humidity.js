@@ -89,7 +89,7 @@ export default function Humidity() {
         align: "left"
       },
       subtitle: {
-        text: "Movimientos recientes de humedad (40 min aprox)",
+        text: "Movimientos recientes de humedad (60 min aprox)",
         align: "left"
       },
       xaxis: {

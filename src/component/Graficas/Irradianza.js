@@ -97,7 +97,7 @@ export default function Irradianza() {
         align: "left"
       },
       subtitle: {
-        text: "Movimientos recientes de irradianza (40 min aprox)",
+        text: "Movimientos recientes de irradianza (60 min aprox)",
         align: "left"
       },
       xaxis: {
